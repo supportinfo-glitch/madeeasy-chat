@@ -1,6 +1,6 @@
 {
   "name": "@agenticauto/madeeasy-chat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Open a MadeEasy chat inside your React Native app, signed in as your user by a single-use link from your server.",
   "license": "MIT",
   "author": "AgenticAuto Limited",

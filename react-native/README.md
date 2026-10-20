@@ -20,6 +20,8 @@ npm install @agenticauto/madeeasy-chat react-native-webview
 cd ios && pod install
 ```
 
+With Expo: `npx expo install react-native-webview`, then `npm install @agenticauto/madeeasy-chat`.
+
 ## Your server
 
 ```http
@@ -51,13 +53,20 @@ export default function App() {
 // On your Help button:
 await MadeEasyChat.open({
   getLink: async () => {
-    const res = await fetch("https://your-server.example.com/support-chat-link"); // your endpoint
+    // Your own endpoint, called as the signed-in user (however your app signs in to your server).
+    const res = await fetch("https://your-server.example.com/support-chat-link", {
+      headers: { Authorization: `Bearer ${yourUserSessionToken}` },
+    });
     return (await res.json()).url;
   },
 });
 ```
 
 If a link expires before it is used, the package asks `getLink` for a new one.
+The chat has its own close button; the package closes the screen when it is tapped.
+
+The full setup guide, including your server's endpoint in Node.js and Python and
+every error message, is in MadeEasy's help guide under "Chat in your mobile app".
 
 ## Photos and files
 
