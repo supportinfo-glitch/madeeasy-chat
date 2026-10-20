@@ -1,6 +1,7 @@
-# Publishes the React Native package when a tag like react-native-v0.1.0 is pushed.
-# The npm token (an npm automation token for the agenticauto organisation) lives
-# in this repository's secrets as NPM_TOKEN; --provenance signs where it was built.
+# Publishes the React Native package when a tag like react-native-v0.2.0 is pushed.
+# npm trusts this workflow directly (trusted publishing, set on the package's npm
+# settings page), so no token is stored anywhere and each version carries signed
+# provenance. The first version was published by hand, as npm requires.
 name: Publish to npm
 on:
   push:
@@ -21,9 +22,9 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
+      # Trusted publishing needs a recent npm.
+      - run: npm install -g npm@latest
       - run: npm ci
       - run: npm test
       - run: npm run build
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --access public
