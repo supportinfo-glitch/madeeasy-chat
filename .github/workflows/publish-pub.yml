@@ -1,0 +1,25 @@
+# Publishes the Flutter package when a tag like flutter-v0.1.0 is pushed.
+# pub.dev trusts this repository directly (Admin, Automated publishing, on the
+# package's pub.dev page), so no token is stored anywhere.
+name: Publish to pub.dev
+on:
+  push:
+    tags: ["flutter-v[0-9]+.[0-9]+.[0-9]+*"]
+permissions:
+  id-token: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: pub.dev
+    defaults:
+      run:
+        working-directory: flutter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter pub publish --force

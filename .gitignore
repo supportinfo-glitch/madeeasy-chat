@@ -1,0 +1,6 @@
+node_modules/
+react-native/lib/
+react-native/build-test/
+.dart_tool/
+build/
+.expo/

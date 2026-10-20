@@ -1,0 +1,44 @@
+{
+  "name": "@agenticauto/madeeasy-chat",
+  "version": "0.1.0",
+  "description": "Open a MadeEasy chat inside your React Native app, signed in as your user by a single-use link from your server.",
+  "license": "MIT",
+  "author": "AgenticAuto Limited",
+  "homepage": "https://agenticauto.net",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supportinfo-glitch/madeeasy-chat.git",
+    "directory": "react-native"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.test.json && node --test build-test/test/policy.test.js"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.72",
+    "react-native-webview": ">=13.6"
+  },
+  "devDependencies": {
+    "@types/node": "22.9.0",
+    "@types/react": "18.3.12",
+    "react": "18.3.1",
+    "react-native": "0.76.5",
+    "react-native-webview": "13.12.5",
+    "typescript": "5.6.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "bugs": {
+    "url": "https://github.com/supportinfo-glitch/madeeasy-chat/issues"
+  }
+}

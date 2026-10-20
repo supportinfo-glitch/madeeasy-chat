@@ -1,0 +1,24 @@
+name: madeeasy_chat
+description: Open a MadeEasy chat inside your Flutter app, signed in as your user by a single-use link from your server.
+version: 0.1.0
+homepage: https://agenticauto.net
+repository: https://github.com/supportinfo-glitch/madeeasy-chat/tree/main/flutter
+issue_tracker: https://github.com/supportinfo-glitch/madeeasy-chat/issues
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.10.0
+  webview_flutter_android: ^4.3.0
+  webview_flutter_wkwebview: ^3.18.0
+  url_launcher: ^6.3.0
+  file_selector: ^1.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
